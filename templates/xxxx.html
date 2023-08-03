@@ -1,0 +1,79 @@
+<div class="navX">
+    <div class="navBar">
+      
+      <div class='main'>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+       </div>
+    
+       
+          <div id="mySidenav" class="sidenav">
+          <div class="navelement">
+          <h2>Contents :</h2>
+          <span style="cursor:pointer" class="closebtn" onclick="closeNav()">&times;</span>
+          <hr>
+      <div class='context'>
+         {% for topic in topics %}
+         <a href="{% url 'sub_topic' courses_id=course.id topic_id=topic.id  %}">{{topic.topic}}</a>
+         {% endfor %}
+      </div>
+      </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+   }
+   .sidebar {
+     background-color: #f0f0f0;
+     width: 200px;
+     height: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+   }
+   
+   .sidebar ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+   
+   .sidebar li {
+     padding: 10px;
+     border-bottom: 1px solid #ccc;
+     position: relative;
+   }
+   
+   .sidebar a {
+     color: #333;
+     text-decoration: none;
+   }
+   
+   .sidebar ul ul {
+     display: none;
+     position: absolute;
+     left: 100%;
+     top: 0;
+   }
+   
+   .sidebar li:hover ul {
+     display: block;
+   }
+   
+   .sidebar ul ul li {
+     float: none;
+     width: 100%;
+     border-bottom: none;
+   }
+   
+   .sidebar ul ul a:hover {
+     background-color: #ddd;
+   }
+   
+   

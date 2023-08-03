@@ -1,0 +1,63 @@
+{% extends 'admin.html'  %}
+
+{% block content %}
+<style>
+p{
+    color:white;
+    margin-top:10px;
+    margin-left:8px;
+}
+h5{
+    color:white;
+    margin-left:8px;
+    margin-top:-1px;
+}
+.msg{
+    background-color:#8A2BE2;
+    margin-right:15%;
+    margin-left:20px;
+    height:100px;
+    border:solid 2px white;
+    border-radius:10px;
+
+}
+.hr2{
+    margin-right:80%;
+
+    }
+
+
+</style>
+{% for users in users %}
+<div class='msg'>
+    <p><bold>@{{user.username}}</bold></p>
+    <hr class='hr2'>
+    <h5>Email: {{user.email}}</h5>
+
+   
+<div class="mainX">
+
+    <img src="{{ room.profile_image.url }}" alt="{{user.name}}" style="cursor:pointer" onclick="openX()" width=40px height=40px>
+  </div>
+  
+    
+  <div id="mySidenavX" class="sideNavX">
+    <div class="navelement">
+    <h2>Contents :</h2>
+    <span style="cursor:pointer" class="closebtn" onclick="closeX()">&times;</span>
+  
+    <div class='userX'>
+      {% for topic in topic %}
+      <a href="{% url "content" topic.id %}">{{topic.topic}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  </div>
+  <hr>
+  </div>
+   
+    
+</div><br>
+{% endfor %}
+
+{% endblock %}

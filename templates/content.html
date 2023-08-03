@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'sub_topic.html' %}
+
+{% block content %}
+
+<style>
+
+   
+     .con{
+         color:white;
+     
+    }
+</style>
+<link rel="stylesheet" href="{% static 'style/content.css' %}">
+<div class='content'>
+
+        <h4>{{ content.image }}</h4>
+ 
+
+    
+</div>
+
+{% endblock %}

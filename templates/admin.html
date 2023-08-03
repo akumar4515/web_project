@@ -1,0 +1,147 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>WEB.aix</title>
+<link rel="stylesheet" href="{% static 'style/index.css' %}">
+   
+<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+body {
+  ba
+  font-family: "Lato", sans-serif;
+
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, white, #8A2BE2);
+        color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 0px;
+}
+
+.sidenav a {
+  padding: 15px 8px 0px 40px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display:block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #a127c6;
+}
+
+.sidenav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color:black;
+
+ }
+.nav1{
+  margin-top:97%;
+ }
+
+
+  
+  #main {
+    transition: margin-left .5s;
+
+  }
+  h1{
+    color:white;
+    margin-left:45%;
+  }
+ 
+
+  .main{
+    margin-top:-4%;
+  }
+  .context{
+    margin-top:2%;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  
+  }
+  .contents,h3{
+    text-align:center;
+    color:white;
+  }
+  #myVideo{
+    width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position:fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  z-index:-1;
+}
+.main{
+  color:white;
+}
+  </style>
+</head>
+<body>
+  <video autoplay muted loop id="myVideo">
+    <source src="{% static 'style/xyz.mov' %}" type="video/mp4">
+  </video>
+  <div class='main_nav'>
+    <a href="/"  style="text-decoration:none;" class='mylink' id="mylink" ><h1> WEB.aix</h1></a>
+
+    <div class='main'>
+   <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+  <hr>
+
+
+<div id="mySidenav" class="sidenav">
+  <div class="navelement">
+  {% if user.is_authenticated%}
+  
+  <h2>Welcome {{room.fname}}</h2>
+  {%else%}
+    <a href="{% url 'login' %}"><h4>Log In</h4></a>
+  {% endif %}
+  
+  <span style="cursor:pointer" class="closebtn" onclick="closeNav()">&times;</span>
+  <div class='context'>
+    <br>
+  <a href="about.html">About</a>
+  <a href="#">content</a>
+  <a href="{% url 'contX'%}">Users</a>
+  <a href="{% url 'admin-msg' %}">Messages</a>
+  {% if user.is_authenticated %}
+  <div class="nav1">
+  <a href="{% url 'user-profile' %}"><span>Your Profile</span></a>
+  <a class='user' href="{% url 'logout' %}">Log_out</a>
+  </div>
+  {% endif %}
+</div>
+</div>
+</div>
+</div>
+{% block content %}
+
+{% endblock %}
+</div>
+<div>
+<script src="{% static 'style/index.js' %}"></script>
+</div>
+</body>
+</html>

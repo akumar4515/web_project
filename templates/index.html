@@ -1,0 +1,232 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>WEB.aix </title>
+ 
+      
+   
+<link rel="stylesheet" href="{% static 'style/index.css' %}">
+   
+<style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+body{
+  font-family: "Lato", sans-serif;
+  min-width:fit-content;
+  color:red
+
+
+ }
+#main {
+  transition: margin-left .5s;
+
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav{padding-top: 15px;}
+  .sidenav a  {font-size: 18px;}
+  
+  }
+
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left:0;
+  background: linear-gradient(to bottom, #73dfc4,  #2c6add);
+  color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 0px;
+}
+
+.sidenav a  {
+  padding: 15px 8px 0px 40px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display:block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #a127c6;
+}
+
+.sidenav .closebtn{
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  color:black;
+}
+
+.main{
+  color:black;
+  margin-top:2.5%;
+}
+img{
+  border-radius:50px;
+  border:solid white 2px;
+}
+.dropdown {
+  margin-left:0%;
+margin-right:0.4%;
+  margin-top:2%;
+ 
+}
+.mainX a{
+  color:black;
+}
+.navBar{
+  display:flex;
+  justify-content: space-between;
+  width:100%;
+  min-width:fit-content;
+ position:absolute;
+}
+hr{
+  color:#867979;
+}
+h1,h3,h4{
+  color:white;
+}
+.welcome{
+  text-align:center;
+  margin-top:7%;
+}
+.jjj{
+  width:300px;
+  height:50px;
+  border:solid white 2px;
+  border-radius:10px;
+ margin-bottom:12%;
+ background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+ 
+}
+.lll{  width:500px;
+  height:35px;
+  border:solid white 2px;
+  border-radius:5px;
+ margin-left:0%;
+ 	 background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+
+
+}
+.lllX {
+  display: flex;
+  border:solid #2b2b2b 1px;
+
+}
+.login{
+  margin-left:-35%;
+}
+h4{
+  margin-top:1.2%;
+}
+.welcome h4{
+  margin-top:5%;
+}
+.welcome,h1,h3{
+color:black;
+ 
+}
+body{
+background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+width:100vw;
+
+}
+.aman{
+  background:white;
+  height:34vw;
+}
+footer{
+  text-align:center;
+  
+}
+
+  </style>
+</head>
+
+
+
+<body>
+  <div class='mainBody'>
+
+  <div class="navBar">
+  
+  <div class='main'>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+   </div>
+
+   
+      <div id="mySidenav" class="sidenav">
+      <div class="navelement">
+      <h2>Contents :</h2>
+      <span style="cursor:pointer" class="closebtn" onclick="closeNav()">&times;</span>
+      <hr>
+  <div class='context'>
+     {% for course in course %}
+     <a href="{% url "topic" course.id  %}">{{course.name}}</a>
+     {% endfor %}
+  </div>
+  </div>
+  </div>
+  <div class='mainX'>
+   <h1><a href="/" style="text-decoration:none;"> WEB.aix</a></h1>
+  </div>
+  <div class="dropdown">
+    {% if user.is_authenticated %}
+    <a href="{% url "user-profile" %}"><img src="{{ room.profile_image.url }}" alt="{{user.name}}" class="dropbtn" style="cursor:pointer"  width=40px height=40px> </a>
+    {% else %}
+    <a href="{% url "login" %}" style="text-decoration:none;" ><h3 class="login">LogIn</h3></a>
+    {% endif %}
+  </div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class='aman'>
+
+{% block content %}
+
+  <div class="lllX"  >
+  {% for course in course%}
+<button class="lll"><a href="{% url 'topic' courses_id=course.id %}" style="text-decoration:none;"><h4>{{course.name}}</h4></a></button><br>
+ {% endfor %}
+    </div>
+
+<div class="welcome">
+{% if user.is_authenticated %}
+<h1>Hey {{room.fname}} </h1>
+{% else %}
+<h1>Hey Learner</h1>
+{% endif %}
+<h3>
+Get Start your Learning journey with us</h3>
+
+<button class="jjj"><a href=""  style="text-decoration:none;"><h4>Start Learning</h4></a></button>
+
+</div>
+
+
+{% endblock %}
+</div>
+
+<footer>
+  <h4>WEB.aix</h4>
+  <a href=''> contact</a>
+  </footer>
+  
+
+<script src="{% static 'style/index.js' %}"></script>
+</div>
+
+</body>
+</html>

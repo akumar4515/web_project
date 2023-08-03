@@ -1,0 +1,39 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+<style>
+p{
+    color:white;
+    margin-top:10px;
+    margin-left:8px;
+}
+h5{
+    color:white;
+    margin-left:8px;
+    margin-top:-1px;
+}
+.msg{
+    background-color:#8A2BE2;
+    margin-right:15%;
+    margin-left:20px;
+    height:100px;
+    border:solid 2px white;
+    border-radius:10px;
+
+}
+.hr2{
+    margin-right:80%;
+
+    }
+
+
+</style>
+{% for msg in msg%}
+<div class='msg'>
+    <p><bold>@{{msg.user}}</bold></p>
+    <hr class='hr2'>
+    <h5>Query : {{msg.content}}</h5>
+</div><br>
+{% endfor %}
+
+{% endblock %}

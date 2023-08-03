@@ -1,0 +1,89 @@
+
+{% extends 'index.html'%}
+{% load static%}
+{% block content%}
+<style>
+    .contact{
+        color:white;
+        margin-left:25%;
+        margin-top:5%;
+    }
+    form{
+        margin-left:25%;
+    }
+    .input{
+        height:100px;
+        width:600px;
+    }
+    .submit{
+       
+        background-color:purple;
+        color:white;
+        width:200px;
+        height:30px;
+        border-radius:10px;
+    }
+    .hr{
+        margin-top:5%;
+        margin-right:20%;
+        margin-left:20%;
+    }
+    .hr2{
+        margin-right:20%;
+        margin-left:20%;
+    }
+    .ex-con{
+      margin-left:20%;
+      dispaly:flex;
+       
+    }
+    .insta, .lnkdn, .about, .email, .about{
+        margin-left:10%;
+        margin-top:1px
+    
+    }
+    .insta, .lnkdn{
+        width:30px;
+        border-radius:10px;
+    }
+    .email{
+        width:30px;
+        border-radius:2px;
+    }
+    .about{
+        color:white;
+     
+    }
+    .trail{
+        color:white;
+        margin-left:45%;
+    }
+    .fweb{
+        color:white;
+        margin-left:47.5%;
+    }
+</style>
+
+
+<div class='contact'>
+<h4> Hey learner i hope you are enjoying the learning from your own virtual teacher (WEB.aix)<br>
+     but what i wonder you got some isssue that's why you are here ?<br>
+     so if you have some issue or something which we missed in our content! <br> <br><h2>you can refer us ! </h2></h4>
+</div>
+<form method='POST' action='' enctype="multipart/form-data">
+    {% csrf_token %}
+    <textarea class='input'name='content' type='text' placeholder="Enter your Query or Problem !" required></textarea><br>
+    <input class='submit' type='submit' value='SUBMIT'>
+</form>
+<hr class='hr'>
+<div class='ex-con' >
+    <a href='mailto:amankumar22200245@gmail.com' style="text-decoration:none"><img src="{% static 'style/email.jpg' %}" class='email'></img></a>
+    <a href='https://www.instagram.com/' class='insta' style='text-decoration:none'><img src="{% static 'style/insta.jpg' %}" class='insta'></img></a>
+    <a href='https://www.linkdln.com/' class='lnkdn' style='text-decoration:none'><img src="{% static 'style/lnkdn.png' %}" class='lnkdn'></img></a>
+</div>
+<hr class='hr2'>
+
+    <h4 class='trail'>@2023 trail official</h4>
+     <h4 class='fweb'> WEB.aix</h4>
+
+    {% endblock %}

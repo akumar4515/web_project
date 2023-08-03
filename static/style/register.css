@@ -1,0 +1,85 @@
+
+h1{
+    color:black;
+
+}
+h1 ,div{
+    text-align:center;
+    
+    
+}
+ header h1{
+    
+
+    color: rgb(231, 227, 23);
+}
+form{
+    border:solid antiquewhite;
+   background-image: url(abstract-blue-background-6538974.jpg);
+    margin:2% 30% 1% 33%;
+    height:500px;
+   min-height:fit-content;
+ min-width: fit-content;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    text-align: center;
+   
+}
+button{
+    font-size: large;
+    width:150px;
+    margin-left:5% ;
+    margin-top: 7%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+
+}
+button:hover{
+    background-color: aqua;
+}
+form:hover{
+    
+    background-image: url(abstract-composition-2199743.jpg);
+}
+body{
+    background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+    width:100vw;
+}
+
+span{
+    color:white;
+    text-align: center;
+}
+label,input{
+    margin-top:7%
+
+}
+.username{
+    margin-right:0% ;
+        
+
+}
+#email {
+    width:170px;
+    margin-right:10%;
+
+}
+.email {
+    margin-left:7% ;
+
+    }
+.password{
+    margin-left:14%
+}
+#pass{
+    width:140px;
+    margin-right:14%
+
+}

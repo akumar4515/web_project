@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>WEB.aix - Profile </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+    	h3 {
+         color:black;
+           text-align:center;
+    
+
+
+}
+body{
+    background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+    width:100vw;
+}
+img{
+    height:100px;
+    width:100px;
+    border:solid white 2px;
+    border-radius:10px;
+   
+}
+h1{
+    color:yellow;
+    text-align:center;
+  
+
+}
+.panel{
+    border:solid yellow 2px;
+}
+.bio-graph-heading{
+    text-align:center;
+    color:white;
+    border:solid white 1px;
+    border-radius:20px;
+    padding:1% 0% 1% 0%;
+    background:linear-gradient(to bottom, #22c2b4,  #2c6add);
+}
+.main1{
+    
+    border-radius:20px;
+    margin:0% 40% 0% 40%;
+    text-align:center;
+    background:linear-gradient(to bottom, #22c2b4,  #2c6add);
+    padding-bottom:2%;
+    padding-top:1%;
+    z-index:-1;
+}
+.bio-row{
+    text-align:center;
+    color:white;
+    
+  
+ 
+
+}
+.bio-desk{
+    color:white;
+    margin-left:1%;
+}
+.r1,.r2, .r3{
+    display:flex;
+    justify-content:space-around;
+}
+.footer{
+    display:flex;
+    color:white;
+    }
+.row{
+    border:solid white 2px;
+    margin:0% 20% 0% 20%;
+    background:linear-gradient(to bottom, #22c2b4,  #2c6add);
+}
+.foot{
+    display:flex;
+    justify-content:space-between;
+   border-left :solid red 3px;
+    margin-right:3%;
+    
+
+}
+
+
+    </style>
+</head>
+<body>
+   
+    <a href="{% url 'index' %}" style="text-decoration:none;"><h3>WEB.aix</h3></a>
+    <hr>
+    <h1>PROFILE</h1>
+   
+
+<div class="main1">
+
+<img src="{{room.profile_image.url}}" alt="{{room.fname}}">
+
+<h2>{{room.fname}} {{room.lname}}</h2>
+<p claas='email'><a href="mailto:{{user.email}}"style="text-decoration:none;" class="__cf_email__" data-cfemail="1b7f7e627f7e625b6f737e5e767a727735787476">[email&#160;protected]</a></p>
+
+<a href="{% url 'update-profile' %}" style="color:yellow"> Edit profile</a>
+</div>
+
+</div>
+
+    
+   
+    
+
+
+
+
+
+<div class="row">
+    <div class="r1">
+<div class="bio-row">
+<p><span>First Name </span>: {{room.fname}}</p>
+</div>
+
+
+
+
+<div class="bio-row">
+<p><span>Last Name </span>: {{room.lname}} </p>
+</div>
+</div>
+<div class="r2">
+<div class="bio-row">
+<p><span>Country </span>: {{room.country}} </p>
+</div>
+<div class="bio-row">
+<p><span>Birthday</span>: {{room.birth_date}}</p>
+</div>
+</div>
+<div class="r3">
+<div class="bio-row">
+<p><span>Occupation </span>: {{room.occupation}} </p>
+</div>
+<div class="bio-row">
+<p><span>Email </span>: <a href="mailto:{{user.email}}" style="text-decoration:none;" class="__cf_email__" >[Email address]</a></p>
+</div>
+</div>
+<div class="bio-graph-heading">
+    {{room.bio}}
+</div>
+
+<div class="bio-row">
+<p><span>linkdln </span>: <a href="{{room.lnkDn}}" style="text-decoration:none;">linkdln</a></p>
+</div>
+</div>
+
+<div class="foot">
+<div class="bio-desk">
+<h4 class="red" style="color:red">User View</h4>
+<p>Created : {{user.date_joined}}</p>
+<p>Last Login : {{user.last_login}}</p>
+</div>
+
+
+<div class="bio-desk">
+<h4 class="terques" style="color:yellow">Profile View </h4>
+<p> Created : {{room.updated}}</p>
+<p>Last Updated : {{room.created}} </p>
+</div>
+</div>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+</script>
+
+</body>
+</html>

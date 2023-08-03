@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WEB.aix</title>
+        <link rel="stylesheet" href="{% static 'style/login.css' %}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <hr>
+              <div>
+           <a href="/" style="text-decoration:none;"><span><h1 class="head">WEB.aix</h1></span></a>
+     <form method="POST" action="login">
+        {% csrf_token %}
+        
+        <div>
+            <h1>LOGIN HERE</h1>
+            <hr>
+            {% for message in messages%}
+        <h5>{{message}}</h5>
+        {% endfor %}
+        
+
+     <label for="username">Username :</label>
+     <input type="username" class="username" id="username" name="username" placeholder="Username"><br>
+     <label for="password">Password :</label>
+     <input type="password" class="pass" id="password" name="password" placeholder="password"><br>
+     <button onclick="">Log-In</button><br><br>
+     <a class="end" href="register">Create Account!</a>
+        </div>
+     </form>
+     <hr>
+<span>
+    @2023 trail official<br>
+      WEB.aix
+</span>
+      </div>
+    </body>
+    </html>

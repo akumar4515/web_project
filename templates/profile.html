@@ -1,0 +1,259 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+
+<title>WEB.aix - edit profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+  
+body{
+  background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+  width:100vw;
+}
+.img{
+   margin:0% 0% 0% 35%;
+}
+img {
+  border:solid white 2px;
+  border-radius:10px;
+}
+.main1{
+  color:white;
+  border:solid white 2px;
+  border-radius:10px;
+  padding:3% 0% 1% 0%;
+  width:600px;
+  
+  min-width:fit-content;
+  background: linear-gradient(to bottom, #22c2b4,  #2c6add);
+
+
+
+}
+.data{
+padding-top:3%;
+display:flex;
+justify-content:space-around;
+margin-left:-65%;
+margin-right:10%;
+}
+.about{
+  border:solid white 2px;
+  margin-left:3%;
+  padding-right:28%;
+
+}
+
+.all{
+  
+  display:flex;
+  
+ }
+ .form-group1,.form-group2,.form-group3{
+           display:flex;
+            margin-left:10%;
+            margin-top:3%;
+ }
+ .col{
+  margin-left:30%;
+ }
+ textarea{
+width:500px;
+ }
+ .form-bio{
+  margin-left:-28%;
+  margin-top:3%;
+ }
+.colx{
+  margin-left:10%;
+  margin-top:3%;
+}
+.row-end{
+  border:solid white 2px;
+  height:30px;
+  padding-top:2%;
+  background:#6600cc;
+  margin-left:20%;
+  margin-right:20%;
+
+}
+button{
+  width:1000px;
+  height:35px;
+  min-width:fit-content;
+  border:solid white 3px;
+  border-radius:20px;
+  margin-top:1%;
+ margin-left:10%;
+ background:green;
+ color:white;
+}
+span{
+  color:white;
+}
+
+
+
+    </style>
+</head>
+<body>
+  <a href="/" style="text-decoration:none; color:black;"><h3>WEB.aix</h3></a>
+  <hr>
+  <a href="{% url 'update-profile' %}"style="text-decoration:none; color:yellow;">Profile</a><br><br>
+
+
+ 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+ {% block content %}
+<form class="form" method="POST" enctype="multipart/form-data" action="{% url 'update-profile' %}" >
+    {% csrf_token %}
+    <div class="all">
+    <div class='main1'>
+  <div class="img">
+<div class="mx-auto" style="width: 140px;">
+<div class="d-flex justify-content-center align-items-center rounded" style="height: 140px;">
+    {% if profile.profile_image %}
+    <img src="{{ profile.profile_image.url }}" alt="{{user.name}}" width=140px height=140px>
+
+{% endif %}
+</div>
+</div>
+
+
+
+<h4 style="margin-left:10%; margin-top:1.5%; color:black">{{profile.fname}} {{profile.lname}}</h4>
+<p class="mb-0" style="margin-left:10%;margin-top:-6.5%; color:yellow;">@{{user.username}}</p>
+<div class="mt-2">
+  <input class="btn btn-primary"style="margin-top:0%;" type="file" name="profile_image">
+</div>
+
+<div class="data">
+<div class="text-muted" style="margin-left:10%;color:red;"><small>Last seen 2 hours ago</small></div>
+
+<div class="text-muted" style="margin-left:20%;color:yellow"><small>Joined 09 Dec 2017</small></div>
+
+</div>
+
+</div>
+<a href="" class="pass" style="text-decoration:none;">Change Password</a>
+</div>
+
+<div class="about">
+
+<div class="form-group1">
+<div>
+<label>First Name</label>
+<input class="form-control" type="text" name="fname" placeholder="John Smith" value={{profile.fname}} required>
+</div>
+
+<br>
+
+    <div class="col">
+    <label>Last Name</label>
+    <input class="form-control" type="text" name="lname" placeholder="John Smith" value={{profile.lname}} required>
+    </div>
+    </div>
+    <div class="form-group2">
+
+<div>
+<label>Username</label>
+ <input class="form-control" type="text" name="username" placeholder="johnny.s" value={{user.username}} required>
+</div>
+
+
+
+<div class="col">
+
+<label>Email</label>
+<input class="form-control" type="text" placeholder="user@example.com" name='email' value={{user.email}} required>
+</div>
+</div>
+
+
+<div class="col mb-3">
+<div class="form-bio">
+<label>About</label>
+<textarea class="form-control" rows="5" placeholder="My Bio" name="bio" required>{{profile.bio}}</textarea><br>
+</div>
+</div>
+<div class="form-group3">
+ 
+      <div>
+        <label for="country">Country :</label>
+        <input class="form-control" type="text" id="country" name="country" value={{profile.country}} >
+      </div>
+          <br>
+
+    <div class="col">
+ 
+    <label for="occupation">Occupation :</label>
+    <input class="form-control" type="text" id="occupation" name="occupation" value={{profile.occupation}} />
+      <br>
+    </div>
+    </div>
+   
+    <div class="colx">
+       
+        <label for="linkdln">linkdln :</label><br>
+        <input class="form-control" type="url" id="linkdln" name="lnkDn" value={{profile.linkdln}} >
+        </div>
+        <div class="colx">
+<label for="birth_date">Date of Birth :</label>
+<input class="form-control" type="date" id="birth_date" name="birth_date" required>
+        </div>
+  <br>
+
+
+<div class="row-end">
+<div class="col d-flex justify-content-end">
+<input class="btn btn-primary" type="submit" value="Save changes">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+
+
+
+
+<div class="col-12 col-md-3 mb-3">
+<div class="card mb-3">
+<div class="card-body">
+<div class="px-xl-3">
+  <hr>
+<button class="btn btn-block btn-secondary">
+<i class="fa fa-sign-out"></i>
+<a href="{% url 'logout' %}" class="logout" style="text-decoration:none;"><span>Logout</span></a>
+</button>
+</div>
+</div>
+</div>
+<hr>
+<div class="card">
+<div class="card-body">
+<h6 class="card-title font-weight-bold">Support</h6>
+<p class="card-text">Get fast, free help from our friendly assistants.</p>
+<button type="button" class="btn btn-primary">Contact Us</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>
